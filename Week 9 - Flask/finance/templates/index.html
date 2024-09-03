@@ -35,7 +35,9 @@
             </tr>
         </tbody>
     </table>
-    <form action="/" method="post">
-
+    <form action="{{ url_for('add_cash') }}" method="post">
+        <label>Add more cash</label>
+        <input type="number" name="cash" id="cash" max=5000>
+        <button class="btn btn-primary mt-2" type="submit">Add Cash</button>
     </form>
 {% endblock %}

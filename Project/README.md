@@ -1,80 +1,124 @@
 # Big Five Personality Assessment
 #### Video Demo:  <URL HERE>
 
-#### Description:
-This project is a Big Five Personality Assessment Tool that leverages the well-established Big Five Personality Model to evaluate personality traits and facets. The Big Five Personality Model is widely recognized in psychology for its comprehensive approach to personality assessment. It categorizes personality into five major dimensions:
+---
+
+## Description
+
+This project is a **Big Five Personality Assessment Tool** that evaluates personality traits and facets using the widely recognized **Big Five Personality Model**. This model is extensively used in psychology due to its comprehensive framework, which categorizes human personality into five primary dimensions. The tool offers insights into these dimensions, helping individuals better understand their strengths, preferences, and interpersonal tendencies.
+
+### The Five Traits and Their Facets:
 
 1. **Agreeableness (A)**
-Reflects an individual's tendency to be compassionate, cooperative, and harmonious in relationships.
-
-Facets: Trust, Morality, Altruism, Cooperation, Modesty, Sympathy.
+   Reflects a person's tendency to prioritize harmony and cooperation in relationships.
+   - **Facets**: Trust, Morality, Altruism, Cooperation, Modesty, Sympathy.
 
 2. **Conscientiousness (C)**
-Measures a person's self-discipline, organization, and goal-oriented behavior.
-
-Facets: Self-Efficacy, Orderliness, Dutifulness, Achievement-Striving, Self-Discipline, Cautiousness.
+   Measures self-discipline, organization, and goal-oriented behavior.
+   - **Facets**: Self-Efficacy, Orderliness, Dutifulness, Achievement-Striving, Self-Discipline, Cautiousness.
 
 3. **Extraversion (E)**
-Indicates how outgoing, energetic, and sociable a person is.
-
-Facets: Friendliness, Gregariousness, Assertiveness, Activity Level, Excitement-Seeking, Cheerfulness.
+   Indicates how sociable, energetic, and outgoing an individual is.
+   - **Facets**: Friendliness, Gregariousness, Assertiveness, Activity Level, Excitement-Seeking, Cheerfulness.
 
 4. **Neuroticism (N)**
-Assesses emotional stability and sensitivity to stress.
-
-Facets: Anxiety, Anger, Depression, Self-Consciousness, Immoderation, Vulnerability.
+   Assesses emotional stability and how individuals handle stress.
+   - **Facets**: Anxiety, Anger, Depression, Self-Consciousness, Immoderation, Vulnerability.
 
 5. **Openness to Experience (O)**
-Captures intellectual curiosity, creativity, and openness to new experiences.
+   Captures intellectual curiosity, creativity, and openness to new ideas.
+   - **Facets**: Imagination, Artistic Interest, Emotionality, Adventurousness, Intellect, Liberalism.
 
-Facets: Imagination, Artistic Interest, Emotionality, Adventurousness, Intellect, Liberalism.
+### Rationale for Using the IPIP-NEO-120 Inventory
 
-#### Rationale for Using the IPIP-NEO-120 Inventory
-This project utilizes the IPIP-NEO-120 inventory, a widely used questionnaire designed to assess the Big Five personality traits. The rationale for choosing this inventory is its comprehensive structure. Unlike many other personality assessment tools that only evaluate the five broad traits, the IPIP-NEO-120 goes a step further by delving into the facets that make up each trait. This facet-level detail provides a more nuanced understanding of an individual's personality, enabling insights into specific strengths and characteristics within each dimension.
+The **IPIP-NEO-120 inventory** was chosen for this project due to its ability to assess not only the five major traits but also their respective facets. These facets provide a deeper understanding of individual differences within each personality dimension.
 
-For example:
+For instance:
+- A high score in **Conscientiousness** could stem from strong **Self-Efficacy** (confidence in abilities) or **Orderliness** (preference for organization).
+- Similarly, a high score in **Agreeableness** could result from high levels of **Trust** (confidence in others) or **Sympathy** (empathy for others).
 
-While a high score in Conscientiousness indicates a disciplined individual, the facet scores (e.g., Self-Efficacy or Dutifulness) reveal whether their discipline stems from confidence in their abilities, adherence to rules, or both.
-Similarly, facets like Trust or Sympathy in Agreeableness allow for more precise insights into how an individual interacts with others.
-By implementing the IPIP-NEO-120, this tool not only evaluates high-level traits but also provides a deeper layer of analysis, which is particularly valuable for applications like roommate matching or professional development. This enhanced level of detail is critical for addressing the project's broader goals, including its connection to my MSc project on **Development of a Roommate Matching System Using Personality Profiling**.
+By analyzing both traits and facets, the tool provides a comprehensive personality profile. This level of detail is particularly useful in applications like **roommate matching**, professional development, or personal growth.
 
-This project was inspired by a similar implementation available at [rubynor/bigfive-web](https://github.com/rubynor/bigfive-web) and is a subset of a larger MSc project titled **Development of a Roommate Matching System Using Personality Profiling**, which can be found on [GitHub](https://github.com/BamjosAdeniyi/roommate-matching-system). AI assistance was used during this project’s development for debugging, optimization, and ensuring a seamless user experience.
-
----
-
-### Features:
-1. **Comprehensive Assessment**:
-   - Users are guided through a series of questions designed to evaluate their personality based on the Big Five model.
-   - Responses are scored using the IPIP-NEO-120 framework.
-
-2. **Results Dashboard**:
-   - Displays overall scores for each trait with categorizations (low, medium, high) and detailed explanations.
-   - Breaks down facet-level scores for each trait and provides additional insights.
-
-3. **Data Visualization**:
-   - Charts for both trait and facet scores are generated using Chart.js, offering users a visual representation of their results.
-
-4. **Unique ID System**:
-   - Each user receives a unique ID upon completing the assessment, enabling them to retrieve their results later.
-
-5. **PDF Download**:
-   - The result page can be printed or downloaded as a PDF for future reference.
-
-### Design Choices:
-1. **Framework**: Flask was chosen for its simplicity and flexibility, allowing rapid prototyping while ensuring scalability.
-2. **Chart.js Integration**: Charts were integrated for data visualization to make results more intuitive and engaging.
-3. **Responsive Design**: Bootstrap and custom CSS were used to ensure that the application looks good on both desktop and mobile devices.
-4. **AI Assistance**: Throughout the project, AI tools were utilized for debugging, code optimization, and architectural decisions. This approach significantly enhanced development efficiency and reduced errors.
-5. **Unique ID System**: This ensures user privacy while allowing results to be retrieved without requiring user accounts.
+This project draws inspiration from the [rubynor/bigfive-web](https://github.com/rubynor/bigfive-web) implementation and is a subset of my MSc project, **Development of a Roommate Matching System Using Personality Profiling**, which can be accessed on [GitHub](https://github.com/BamjosAdeniyi/roommate-matching-system).
 
 ---
 
-### Acknowledgments:
-1. **Inspiration**:
-   - This project draws inspiration from [rubynor/bigfive-web](https://github.com/rubynor/bigfive-web), which implemented a similar personality assessment system.
-2. **Academic Integration**:
-   - This project is a subset of the larger MSc project, **Development of a Roommate Matching System Using Personality Profiling**, available at [GitHub](https://github.com/BamjosAdeniyi/roommate-matching-system).
-3. **AI Tools**:
-   - AI assistance was instrumental in streamlining the development process, particularly in debugging and optimizing the application.
+## Features
 
+### 1. Comprehensive Assessment
+- Users are guided through 120 questions based on the **IPIP-NEO-120** framework.
+- Each response contributes to scores for the Big Five traits and their facets.
 
+### 2. Results Dashboard
+- The dashboard displays:
+  - **Overall Trait Scores** with categories: low, medium, and high.
+  - **Detailed Explanations** for each trait, helping users interpret their scores.
+  - **Facet-Level Scores**, providing deeper insights into personality dimensions.
+
+### 3. Data Visualization
+- Interactive bar charts generated using **Chart.js** visually represent trait and facet scores.
+
+### 4. Unique ID System
+- Upon completion, users receive a **unique ID** to access their results without requiring an account.
+
+### 5. PDF Download
+- Users can download their results page as a **PDF** for future reference.
+
+### 6. Responsive Design
+- The application is fully responsive, ensuring usability on both desktop and mobile devices.
+
+---
+
+## Design and Implementation
+
+### Framework
+The project is built using the **Flask** framework for its simplicity and flexibility. Flask allowed for rapid prototyping while supporting scalable architecture.
+
+### Unique ID System
+To ensure privacy, users are assigned a unique ID instead of creating accounts. This ID enables them to retrieve their results later.
+
+### Chart.js Integration
+**Chart.js** was integrated for data visualization, making results intuitive and engaging.
+
+### AI Assistance
+AI tools were employed for:
+- Debugging complex issues.
+- Optimizing the codebase.
+- Making architectural decisions.
+
+### Roommate Matching Integration
+This project is a subset of a larger MSc project on roommate matching. Insights from the Big Five assessment directly influence the matching algorithm by identifying compatible personality traits and preferences.
+
+---
+
+## Acknowledgments
+
+### Inspiration
+This project was inspired by the [rubynor/bigfive-web](https://github.com/rubynor/bigfive-web) project, which implemented a similar personality assessment tool.
+
+### Academic Connection
+It is also a part of my MSc project titled **Development of a Roommate Matching System Using Personality Profiling**, available on [GitHub](https://github.com/BamjosAdeniyi/roommate-matching-system).
+
+### AI Tools
+AI tools were instrumental in ensuring a streamlined development process. They provided:
+- Debugging assistance.
+- Suggestions for optimization.
+- Feedback on design choices.
+
+---
+
+## Future Improvements
+
+1. **User Accounts**:
+   Implementing optional user accounts for result storage and tracking over time.
+
+2. **Custom Reports**:
+   Providing users with personalized suggestions based on their personality profiles.
+
+3. **Enhanced Visualizations**:
+   Adding interactive visualizations for a more engaging user experience.
+
+4. **Expanded Applications**:
+   Extending the assessment to support use cases like career guidance, team-building, and educational planning.
+
+---

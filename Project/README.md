@@ -100,7 +100,7 @@ This project was inspired by the [rubynor/bigfive-web](https://github.com/rubyno
 It is also a part of my MSc project titled **Development of a Roommate Matching System Using Personality Profiling**, available on [GitHub](https://github.com/BamjosAdeniyi/roommate-matching-system).
 
 ### AI Tools
-AI tools were instrumental in ensuring a streamlined development process. They provided:
+ChatGPT was instrumental in ensuring a streamlined development process. It provided:
 - Debugging assistance.
 - Suggestions for optimization.
 - Feedback on design choices.

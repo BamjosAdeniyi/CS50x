@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block title %}Home - Personality Assessment{% endblock %}
+
+{% block content %}
+<div class="container text-center mt-5 mb-5">
+    <h1 class="mb-2">Welcome to the Big Five Personality Assessment</h1>
+    <p class="lead text-muted">
+        The Big Five Personality Model is one of the most researched and respected frameworks for understanding personality.
+        This assessment tool evaluates your traits across five dimensions:
+    </p>
+    <ul class="list-group list-group-flush text-start d-inline-block mx-auto my-2" style="max-width: 600px;">
+        <li class="list-group-item"><strong>Openness:</strong> Creativity, curiosity, and a preference for novelty and variety.</li>
+        <li class="list-group-item"><strong>Conscientiousness:</strong> Organization, dependability, and a strong sense of duty.</li>
+        <li class="list-group-item"><strong>Extraversion:</strong> Sociability, assertiveness, and energy levels in social settings.</li>
+        <li class="list-group-item"><strong>Agreeableness:</strong> Compassion, cooperation, and trust in relationships.</li>
+        <li class="list-group-item"><strong>Neuroticism:</strong> Emotional stability and ability to handle stress.</li>
+    </ul>
+    <p class="mt-2">
+        By completing this assessment, you can gain valuable insights into your personality, which can help in personal growth,
+        understanding others, and making informed decisions in life.
+    </p>
+    <div class="d-flex justify-content-center mt-4">
+        <a href="/assessment" class="btn btn-primary me-3">Start Assessment</a>
+        <a href="/check-results" class="btn btn-secondary">Check Results</a>
+    </div>
+</div>
+{% endblock %}

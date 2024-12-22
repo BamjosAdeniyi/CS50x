@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% block title %}Assessment Submitted{% endblock %}
+
+{% block content %}
+<div class="container mt-5 text-center">
+    <h1 class="text-success">Assessment Submitted Successfully!</h1>
+    <p class="mt-3">Thank you for completing the personality assessment.</p>
+    <p class="fw-bold text-danger">Your unique ID is:</p>
+    <div class="d-flex justify-content-center align-items-center">
+        <h3 class="text-primary me-2" id="uniqueID">{{ session_id }}</h3>
+        <button class="btn btn-outline-secondary" onclick="copyToClipboard()" title="Copy Unique ID">
+            <i class="fas fa-copy"></i>
+        </button>
+    </div>
+    <p class="mt-3">Please save this unique ID for future reference. You will need it to check your results later.</p>
+    <div class="mt-4">
+        <a href="/" class="btn btn-secondary">Go to Home</a>
+        <a href="/check-results" class="btn btn-primary">Check Results</a>
+    </div>
+</div>
+
+<script>
+    function copyToClipboard() {
+        const uniqueID = document.getElementById("uniqueID").textContent;
+        navigator.clipboard.writeText(uniqueID).then(() => {
+            alert("Unique ID copied to clipboard!");
+        }).catch(err => {
+            alert("Failed to copy ID: " + err);
+        });
+    }
+</script>
+
+<!-- Add Font Awesome for the copy icon -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+{% endblock %}

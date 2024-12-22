@@ -1,0 +1,135 @@
+{% extends "layout.html" %}
+
+{% block title %}Your Results - Personality Assessment{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="bg-white p-4 rounded shadow-sm">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h1 class="text-center">Your Personality Test Results</h1>
+            <button class="btn btn-primary" onclick="window.print()">Print This Page</button>
+        </div>
+
+        <!-- Display Session ID -->
+        <h4 class="text-center text-muted mb-4">Unique ID: {{ session_id }}</h4>
+
+        <!-- Trait Scores -->
+        <h2 class="text-xl font-semibold mb-2">Big Five Trait Scores</h2>
+        <ul class="list-group mb-4">
+            {% for trait in traits %}
+                <li class="list-group-item">
+                    <strong>{{ trait['trait_full'] }}:</strong> {{ trait['score'] }}
+                </li>
+            {% endfor %}
+        </ul>
+
+        <!-- Chart for overall trait scores -->
+        <canvas id="traitChart" class="mb-5"></canvas>
+
+        <!-- Trait Explanations and Facets -->
+        <h2 class="text-xl font-semibold mt-8 mb-4">Detailed Explanations and Facet Scores</h2>
+        {% for trait, facets in facets_grouped_by_trait.items() %}
+            <div class="mb-4">
+                <!-- Trait Header with Explanation -->
+                <h3><strong>{{ trait }}</strong>: {{ traits | selectattr('trait_full', 'equalto', trait) | map(attribute='score') | first }} ({{ traits | selectattr('trait_full', 'equalto', trait) | map(attribute='category') | first }})</h3>
+                <p class="text-muted">{{ traits | selectattr('trait_full', 'equalto', trait) | map(attribute='explanation') | first }}</p>
+
+                <!-- Facet Scores -->
+                <ul class="list-group mb-4">
+                    {% for facet in facets %}
+                        <li class="list-group-item">
+                            <strong>{{ facet['facet'] }}:</strong> {{ facet['score'] }} ({{ facet['category'] }})
+                        </li>
+                    {% endfor %}
+                </ul>
+
+                <!-- Chart for individual trait facets -->
+                <canvas id="{{ trait|replace(' ', '_') }}FacetChart" class="mb-5"></canvas>
+            </div>
+        {% endfor %}
+
+        <!-- Back to Dashboard -->
+        <div class="mt-6 text-center">
+            <a href="{{ url_for('home') }}" class="btn btn-secondary">Back to Home</a>
+        </div>
+    </div>
+</div>
+
+<!-- Chart.js Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    // Trait Chart
+    const traitData = {
+        labels: [{% for trait in traits %}"{{ trait['trait_full'] }}"{% if not loop.last %}, {% endif %}{% endfor %}],
+        datasets: [{
+            label: 'Trait Scores',
+            data: [{% for trait in traits %}{{ trait['score'] }}{% if not loop.last %}, {% endif %}{% endfor %}],
+            backgroundColor: [
+                'rgba(0, 206, 63, 0.75)',
+                'rgba(0, 66, 207, 0.75)',
+                'rgba(255, 173, 0, 0.75)',
+                'rgba(255, 21, 119, 0.75)',
+                'rgba(127, 0, 213, 0.75)'
+            ],
+            borderColor: [
+                'rgba(0, 206, 63, 1)',
+                'rgba(0, 66, 207, 1)',
+                'rgba(255, 173, 0, 1)',
+                'rgba(255, 21, 119, 1)',
+                'rgba(127, 0, 213, 1)'
+            ],
+            borderWidth: 1
+        }]
+    };
+
+    const ctxTrait = document.getElementById('traitChart').getContext('2d');
+    new Chart(ctxTrait, {
+        type: 'bar',
+        data: traitData,
+        options: {
+            responsive: true,
+            scales: {
+                y: { beginAtZero: true, max: 120 }
+            }
+        }
+    });
+
+    // Facet Charts
+    {% for trait, facets in facets_grouped_by_trait.items() %}
+        const ctx{{ trait|replace(' ', '_') }} = document.getElementById('{{ trait|replace(' ', '_') }}FacetChart').getContext('2d');
+        new Chart(ctx{{ trait|replace(' ', '_') }}, {
+            type: 'bar',
+            data: {
+                labels: [{% for facet in facets %}"{{ facet['facet'] }}"{% if not loop.last %}, {% endif %}{% endfor %}],
+                datasets: [{
+                    label: '{{ trait }} Facet Scores',
+                    data: [{% for facet in facets %}{{ facet['score'] }}{% if not loop.last %}, {% endif %}{% endfor %}],
+                    backgroundColor: [
+                        'rgba(0, 206, 63, 0.75)',
+                        'rgba(0, 66, 207, 0.75)',
+                        'rgba(255, 173, 0, 0.75)',
+                        'rgba(255, 21, 119, 0.75)',
+                        'rgba(127, 0, 213, 0.75)',
+                        'rgba(243, 117, 0, 0.75)'
+                    ],
+                    borderColor: [
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(231, 76, 60, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(243, 117, 0, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: { beginAtZero: true, max: 20 }
+                }
+            }
+        });
+    {% endfor %}
+</script>
+{% endblock %}

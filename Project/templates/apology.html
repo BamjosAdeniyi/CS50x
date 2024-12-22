@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Error
+{% endblock %}
+
+{% block main %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6 text-center">
+            <h1 class="display-4 text-danger">Oops!</h1>
+            <p class="lead">{{ message }}</p>
+            <a href="/" class="btn btn-primary mt-3">Go to Home</a>
+            <a href="/assessment" class="btn btn-secondary mt-3">Retry Assessment</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
